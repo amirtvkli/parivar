@@ -32,7 +32,7 @@ $(document).ready(function() {
     dragAndMove: false,
     offsetSections: false,
     resetSliders: false,
-    fadingEffect: false,
+    fadingEffect: true,
     normalScrollElements: '#element1, .element2',
     scrollOverflow: false,
     scrollOverflowReset: false,
@@ -52,11 +52,11 @@ $(document).ready(function() {
     sectionsColor : ['#ffffff00', '#fff','#fff'],
     paddingTop: '0em',
     paddingBottom: '0px',
-    fixedElements: '#header',
+    fixedElements: '#footer',
     responsiveWidth: 0,
     responsiveHeight: 0,
     responsiveSlides: false,
-    parallax: false,
+    parallax: true,
     parallaxOptions: {type: 'reveal', percentage: 62, property: 'translate'},
     
     //Custom selectors

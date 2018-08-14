@@ -3,33 +3,23 @@ body{
     /* overflow-x: hidden;
     overflow-y: hidden; */
 }
+
 i {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-size: 17px;
     padding-left: 7px;
     font-family: 'parivar' !important;
-    speak: none;
+    speak-as: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  
+    
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-menu:before {
-    content: "\e901";
-  }
-  .icon-client:before {
-    content: "\e900";
-  }
-  .icon-signin:before {
-    content: "\e902";
-  }
-  
+}
 
 
 *{
@@ -39,6 +29,84 @@ i {
 h1{
     text-align:center;
 }
+
+/* footer signature */
+#footer {
+    display: flex;
+    position: absolute;
+    font-family: 'Vazir-FD';
+    font-size: 11px !important;
+    font-weight: 300;
+    z-index: 200;
+    bottom:3.5%;
+    left: 2%;
+    color: rgb(235, 235, 235);
+}
+#footer i{
+    font-size: 13px !important;
+    margin: 0 3px;
+}
+
+#footer p,a{
+    direction: rtl !important;
+    color: rgb(0, 0, 0) !important;
+}
+#footer a:hover{
+    font-weight: bold;
+}
+#vista{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 0; /* Gives that scrolling effect as the typing happens */
+    width:0;
+}
+#vista:hover{
+    width: 100%;
+}
+.icon-vista:hover + #vista{
+    color:black;
+    animation: scale 1s ease-in;
+    animation-fill-mode: forwards;
+    transition-delay: 2s;
+}
+#signature{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 0; /* Gives that scrolling effect as the typing happens */
+    width:0;
+}
+#signature:hover{
+    width:100%;
+}
+.icon-angle-left,.icon-angle-right,.icon-info,.icon-vista{
+    cursor: pointer;
+}
+.icon-angle-left:hover{
+    color:black;
+}
+.icon-angle-right:hover{
+    color:black;
+}
+.icon-vista:hover{
+    color:black;
+}
+.icon-info:hover{
+    color:black;
+}
+.icon-info:hover + #signature{
+    animation: 
+    scale 1s ease-in;
+    animation-fill-mode: forwards; 
+    transition-delay: 2s;
+}
+@keyframes scale {
+    0% {width: 0}
+    from { width: 0 }
+    to { width: 100% }
+    100% {width: 100% }
+}
+
+
 #menu {
     margin-top:5px; 
     padding: 0px 20px; 
@@ -69,47 +137,48 @@ h1{
 }
 #gradient-purple{
     position: absolute;
-    top:0%;
+    left:0%;
     z-index: 0; 
-    filter: blur(100px);
-    animation: 8s fadeInPurple infinite;}
+    filter: blur(180px);
+    animation: 8s fadeInPurple infinite;
+}
 #gradient-blue{
     position: absolute;
-    top:0%;
+    left:0%;
     z-index: 0; 
-    filter: blur(140px);
+    filter: blur(240px);
     animation: 5s fadeInBlue infinite;
 }
 @keyframes fadeInPurple {
     0% {
         opacity: 0;
-        left: 10%;
+        top: 30%;
     }
     50% {
-        opacity: 0.4;
-        left: 0%;
-	}
-	100% {
-        opacity: 0.1;
-        left: 10%;
-	}
-
+        opacity: 0;
+        top: -30%;
+    }
+    100% {
+        opacity: 0.0;
+        top: 30%;
+    }
+    
 }
 @keyframes fadeInBlue {
     0% {
         opacity: 0;
-        right: 5%;
-	}
-
-	50% {
-        opacity: 0.2;
-        right: 0%;
-	}
-
+        top: 5%;
+    }
+    
+    50% {
+        opacity: 0;
+        top: 0%;
+    }
+    
     100% {
         opacity: 0;
-        right: 30%;
-	}
+        top: 30%;
+    }
 }
 #particles{
     position: absolute;
@@ -129,11 +198,10 @@ h1{
 
 #canvas{
     position: absolute;
- right:60%;
- bottom:35%;
- opacity:1;
-
-  }
+    right:50%;
+    bottom:35%;
+    filter: blur(2px);
+}
 #line-bottom{
     position: absolute;
     height: 13px;
@@ -188,7 +256,6 @@ h1{
     left:bottom;
 }
 #slider img{
-    width:100%;
     height:100vh;
     
 }
@@ -205,32 +272,22 @@ h1{
     left:0;
     background: transparent;
 }
-#prev,#next{
-    float:left;
-    cursor:pointer;
-    position: absolute;
-    z-index:100;
-    margin-left: 30px;
-    bottom:6%;
-    opacity: 0.1;
-    color: black;
-}
-.icon-angle-left, .icon-angle-right{
-font-size: 12px;
-}
-
-#prev{
-    left:3%;
-}
-#next{
-    left:6%; 
-}
-#prev:hover,#next:hover{
-    opacity: 1;
-}
-
 
 .menu-icon{
     height: 17px;
     padding-left: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #logo{
+        float: left;
+        direction: rtl;
+        position: absolute;
+        top:12%;
+        right: 20%;
+    }
+    .carousel,#line-bottom{
+        display: none;
+    }
 }
